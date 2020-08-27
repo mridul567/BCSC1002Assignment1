@@ -11,6 +11,18 @@ public class Book {
     private String authorName;
     private String thirteenDigitISBNNumber;
 
+    public Book() {
+        bookName = "Engineering Chemistry";
+        authorName = "Shashi Chawla";
+        thirteenDigitISBNNumber = "9788120309999";
+    }
+
+    public Book(String bookName, String authorName, String thirteenDigitISBNNumber) {
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.thirteenDigitISBNNumber = thirteenDigitISBNNumber;
+    }
+
     public String getBookName() {
         return bookName;
     }
@@ -34,5 +46,4 @@ public class Book {
     public void setThirteenDigitISBNNumber(String thirteenDigitISBNNumber) {
         this.thirteenDigitISBNNumber = thirteenDigitISBNNumber;
     }
-
 }
