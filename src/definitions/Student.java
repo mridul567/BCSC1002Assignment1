@@ -6,6 +6,9 @@
  * */
 package definitions;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Student {
     private String firstName;
     private String middleName;
@@ -60,5 +63,36 @@ public class Student {
 
     public void setNameOfAllBooksIssuedByStudent(Book[] nameOfAllBooksIssuedByStudent) {
         this.nameOfAllBooksIssuedByStudent = nameOfAllBooksIssuedByStudent;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return getUniversityRollNumber() == student.getUniversityRollNumber() &&
+                getNumberOfBooksIssuedByStudent() == student.getNumberOfBooksIssuedByStudent() &&
+                Objects.equals(getFirstName(), student.getFirstName()) &&
+                Objects.equals(getMiddleName(), student.getMiddleName()) &&
+                Objects.equals(getLastName(), student.getLastName()) &&
+                Arrays.equals(getNameOfAllBooksIssuedByStudent(), student.getNameOfAllBooksIssuedByStudent());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getFirstName(), getMiddleName(), getLastName(), getUniversityRollNumber(), getNumberOfBooksIssuedByStudent());
+        result = 31 * result + Arrays.hashCode(getNameOfAllBooksIssuedByStudent());
+        return result;
+    }
+
+    public String toString() {
+        return "Student{" +
+                "firstName='" + getFirstName() + '\'' +
+                ", middleName='" + getMiddleName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", universityRollNumber=" + getUniversityRollNumber() +
+                ", numberOfBooksIssuedByStudent=" + getNumberOfBooksIssuedByStudent() +
+                ", nameOfAllBooksIssuedByStudent=" + Arrays.toString(getNameOfAllBooksIssuedByStudent()) +
+                '}';
     }
 }
