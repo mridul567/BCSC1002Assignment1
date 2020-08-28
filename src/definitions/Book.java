@@ -13,7 +13,7 @@ public class Book {
     private String authorName;
     private String thirteenDigitISBNNumber;
 
-    public Book() {
+    public Book(String s) {
         bookName = "Engineering Chemistry";
         authorName = "Shashi Chawla";
         thirteenDigitISBNNumber = "9788120309999";
