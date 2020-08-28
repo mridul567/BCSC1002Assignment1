@@ -6,16 +6,10 @@
  * */
 package definitions;
 
+import java.util.Arrays;
+
 public class Library {
     private Book[] allBooksThatAreCurrentlyAvailable;
-
-    public Book[] getAllBooksThatAreCurrentlyAvailable() {
-        return allBooksThatAreCurrentlyAvailable.clone();
-    }
-
-    public void setAllBooksThatAreCurrentlyAvailable(Book[] allBooksThatAreCurrentlyAvailable) {
-        this.allBooksThatAreCurrentlyAvailable = allBooksThatAreCurrentlyAvailable;
-    }
 
     public Library() {
         this.allBooksThatAreCurrentlyAvailable = new Book[15];
@@ -26,5 +20,33 @@ public class Library {
 
     public Library(Book[] allBooksThatAreCurrentlyAvailable) {
         this.allBooksThatAreCurrentlyAvailable = allBooksThatAreCurrentlyAvailable;
+    }
+
+    public Book[] getAllBooksThatAreCurrentlyAvailable() {
+        return allBooksThatAreCurrentlyAvailable.clone();
+    }
+
+    public void setAllBooksThatAreCurrentlyAvailable(Book[] allBooksThatAreCurrentlyAvailable) {
+        this.allBooksThatAreCurrentlyAvailable = allBooksThatAreCurrentlyAvailable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Library library = (Library) o;
+        return Arrays.equals(getAllBooksThatAreCurrentlyAvailable(), library.getAllBooksThatAreCurrentlyAvailable());
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(getAllBooksThatAreCurrentlyAvailable());
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "All Books That Are Currently Available =" + Arrays.toString(allBooksThatAreCurrentlyAvailable) +
+                '}';
     }
 }
