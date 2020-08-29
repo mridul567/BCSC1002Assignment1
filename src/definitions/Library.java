@@ -49,4 +49,31 @@ public class Library {
                 "All Books That Are Currently Available =" + Arrays.toString(allBooksThatAreCurrentlyAvailable) +
                 '}';
     }
+
+    /**
+     * This method issue a Book to the Student.
+     *
+     * @param bookName name of the book which is to be issued by the Student .
+     */
+    public void issueBook(String bookName) {
+        System.out.println(bookName + " is issued to the Student");
+    }
+
+    /**
+     * This method returns the issued Book from the Student.
+     *
+     * @param bookName the name of the book which is to be returned.
+     */
+    public void returnBook(String bookName) {
+        System.out.println("Thank You for returning, " + bookName + ". Hope it helped you in studies!" );
+    }
+
+    /**
+     * This method shows a list of all the books issued by the Student.
+     */
+    public void showAllIssuedBooks() {
+        for (Book bookNames : allBooksThatAreCurrentlyAvailable) {
+            System.out.println(bookNames);
+        }
+    }
 }
